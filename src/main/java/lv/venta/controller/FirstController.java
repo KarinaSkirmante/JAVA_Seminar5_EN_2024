@@ -30,6 +30,8 @@ public class FirstController {
 	//1. create git repo and push this project
 	//2. create model package as lv.venta.model
 	//3. create a new model class Product in this package (id, title, description, price, quantity)
+	//4. create controller function, where to pass one product to html
+	//5. create an html to show the product
 	
 	
 }
