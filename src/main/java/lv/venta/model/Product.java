@@ -19,7 +19,7 @@ public class Product {
 	private float price;
 	private int quantity;
 	
-	private static int counter = 1;
+	private static int counter = 1;	
 	
 	public void setId() {
 		this.id = counter++;
