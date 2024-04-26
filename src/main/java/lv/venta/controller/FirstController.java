@@ -36,7 +36,10 @@ public class FirstController {
 		return "show-one-product-page";//it will show show-one-product-page.html file in browser
 	}
 	
-	
+	//TODO
+	//create a list of 3 products
+	//create a  controller function to pass this list to html page
+	//create a html page which can show the product list
 	
 	
 	
