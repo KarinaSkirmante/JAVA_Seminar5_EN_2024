@@ -28,6 +28,13 @@ public class Seminar5Application {
 				productRepo.save(p2);
 				productRepo.save(p3);
 				
+				System.out.println("How Many: " +productRepo.count());
+				
+				System.out.println("All Products: " + productRepo.findAll());
+				
+				System.out.println("Find by id " + productRepo.findById(2).get());
+				
+				
 				
 			}
 		};
