@@ -81,7 +81,7 @@ public class ProductCRUDController {
 	}
 	
 	@PostMapping("/create")
-	public String postproductCRUDCreate(Product product, Model model)
+	public String postProductCRUDCreate(Product product, Model model)
 	{
 		try {
 			productCRUDservice.create(product.getTitle(), product.getDescription(),
@@ -95,6 +95,35 @@ public class ProductCRUDController {
 		
 	}
 	
+	@GetMapping("/update/{id}") //localhost:8080/product/crud/update/1
+	public String getProductCRUDUpdateById(@PathVariable("id") int id, Model model) {
+		try
+		{
+			Product productForUpdating = productCRUDservice.retrieveById(id);
+			model.addAttribute("product", productForUpdating);
+			model.addAttribute("id", id);
+			return "update-product-page";//will show update-product-page.html page with productForUpdating
+		}
+		catch (Exception e) {
+			model.addAttribute("mypackage", e.getMessage());
+			return "error-page";//will show error-page.html page with exception message
+		}
+	}
+	
+	@PostMapping("/update/{id}")
+	public String postProductCRUDUpdateById(@PathVariable("id") int id, Product product, 
+			Model model)
+	{
+		try {
+			productCRUDservice.updateById(id, product.getTitle(), product.getDescription(),
+					product.getPrice(), product.getQuantity());
+			return "redirect:/product/crud/all/" + id;
+			
+		} catch (Exception e) {
+			model.addAttribute("mypackage", e.getMessage());
+			return "error-page";//will show error-page.html page with exception message
+		}
+	}
 	
 
 }
